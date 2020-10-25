@@ -1,0 +1,122 @@
+/*---Media Queries --*/
+@media (max-width: 992px){
+
+}
+/*---Media Queries --*/
+@media (max-width: 768px){
+
+}
+/*---Media Queries --*/
+@media (max-width: 576px){
+
+}
+
+/*---Firefox Bug Fix --*/
+.carousel-item{
+	transition: -webkit-transform 0.5s ease;
+	transition: transform 0.5s ease;
+	transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+	-webkit-backface-visibility: visible;
+	backface-visibility: visible;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+	font-family: 'Roboto', sans-serif;
+	background: url(/storage/config/default.png) no-repeat center center fixed;
+	background-size: cover;
+}
+
+.main-section{
+	margin: 0 auto;
+	margin-top:  130px;
+	padding: 0;
+
+}
+
+.modal-content{
+	background-color: #3b4652;
+	opacity: .90;
+	padding: 0 18p;
+	box-shadow: 0px 0px 30px #0f0f0f;
+	border-radius: 30px 00px 30px 00px;
+}
+
+.user-img{
+	margin-top: -50px;
+	margin-bottom: 35px;
+}
+
+.user-img img{
+	height: 30%;
+	width: 30%;
+	/*border-radius: 50px;*/
+	 border-radius: 10px 10px 00px 00px;
+	/*box-shadow: 0px 0px 20px #3b4652;*/
+}
+
+.form-group{
+	margin-bottom: 25px;
+}
+.form-group input{
+	height: 42px;
+	border-radius: 5px;
+	border: 0;
+	font-size: 18px;
+	padding-left: 44px;
+}
+
+.form-group::before{
+	font-family: 'Font Awesome\ 5 Free';
+	content: "\f007";
+	position: absolute;
+	font-size: 22px;
+	color: #555e60;
+	left: 28px;
+	padding-top: 4px;
+}
+
+.form-group:last-of-type::before{
+	content: "\f023";
+}
+
+button {
+	width: 40%;
+	margin: 5px 0 25px;
+}
+
+.btn{
+	background-color: #276ac2;
+	color: #fff;
+	font-size: 19px;
+	padding: 7px 14px;
+	border-radius: 5px;
+	border-bottom: 4px solid #215998;
+}
+
+.btn:hover, .btn:focus{
+	background-color: #2569a8!important;
+	border-bottom: 4px solid #254ea8!important;
+}
+
+.svg-inline--fa{
+	font-size: 20px;
+	margin-right: 7px;
+}
+
+.forgot{
+	padding: 5px 0 25px;
+}
+
+.forgot a{
+	color: #ffffff;
+}
+
+.texto{
+    color: #fff;
+    font-size: small;
+    margin-right: 2px;
+    vertical-align: 2px;
+}
+

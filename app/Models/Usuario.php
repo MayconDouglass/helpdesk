@@ -20,10 +20,11 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $password
  * @property string|null $remember_token
  * @property int $ativo
- * @property int $usuario
+ * @property int $usucad
  * @property Carbon $data_cad
  * @property Carbon|null $data_alt
  * 
+ * @property Usuario $usuario
  * @property Cargo $cargo
  * @property Collection|Post[] $posts
  * @property Collection|TicketAnexo[] $ticket_anexos
@@ -42,7 +43,7 @@ class Usuario extends Model
 	protected $casts = [
 		'cargo_cod' => 'int',
 		'ativo' => 'int',
-		'usuario' => 'int'
+		'usucad' => 'int'
 	];
 
 	protected $dates = [
@@ -62,14 +63,14 @@ class Usuario extends Model
 		'password',
 		'remember_token',
 		'ativo',
-		'usuario',
+		'usucad',
 		'data_cad',
 		'data_alt'
 	];
 
 	public function usuario()
 	{
-		return $this->belongsTo(Usuario::class, 'usuario');
+		return $this->belongsTo(Usuario::class, 'usucad');
 	}
 
 	public function cargo()
@@ -99,6 +100,6 @@ class Usuario extends Model
 
 	public function usuarios()
 	{
-		return $this->hasMany(Usuario::class, 'usuario');
+		return $this->hasMany(Usuario::class, 'usucad');
 	}
 }

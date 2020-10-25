@@ -2,38 +2,82 @@
 
 namespace App;
 
+use App\Models\Cargo;
+use App\Models\Post;
+use App\Models\TicketAnexo;
+use App\Models\TicketPost;
+use App\Models\UserComentario;
+use App\Models\Usuario;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    protected $table = 'usuarios';
+	protected $primaryKey = 'id_usuario';
+	public $timestamps = false;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+	protected $casts = [
+		'cargo_cod' => 'int',
+		'ativo' => 'int',
+		'usuario' => 'int'
+	];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+	protected $dates = [
+		'data_cad',
+		'data_alt'
+	];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+	protected $hidden = [
+		'password',
+		'remember_token'
+	];
+
+	protected $fillable = [
+		'cargo_cod',
+		'nome',
+		'email',
+		'password',
+		'remember_token',
+		'ativo',
+		'usuario',
+		'data_cad',
+		'data_alt'
+	];
+
+	public function usuario()
+	{
+		return $this->belongsTo(Usuario::class, 'usucad');
+	}
+
+	public function cargo()
+	{
+		return $this->belongsTo(Cargo::class, 'cargo_cod');
+	}
+
+	public function posts()
+	{
+		return $this->hasMany(Post::class, 'user_alt');
+	}
+
+	public function ticket_anexos()
+	{
+		return $this->hasMany(TicketAnexo::class, 'operador');
+	}
+
+	public function ticket_posts()
+	{
+		return $this->hasMany(TicketPost::class, 'operador');
+	}
+
+	public function user_comentarios()
+	{
+		return $this->hasMany(UserComentario::class, 'operador');
+	}
+
+	public function usuarios()
+	{
+		return $this->hasMany(Usuario::class, 'usucad');
+	}
 }
