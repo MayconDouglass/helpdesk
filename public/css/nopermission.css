@@ -20,7 +20,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: url(/storage/config/default.png) no-repeat center center fixed;
+    background: url('/storage/config/default.png') no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -134,7 +134,7 @@ a:link{
     color: #dc3545 !important; 
 }
 
-.teste {
+.texto-error {
     color: #dc3545;
     float: center;
     font-weight: bold;

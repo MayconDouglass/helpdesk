@@ -2,16 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Almoxarifado;
-use App\Models\Cliente;
-use App\Models\Perfil;
+use App\Models\CargoAcesso;
 use Illuminate\Http\Request;
 //use Illuminate\Support\Facades\Auth;
 use App\User;
-use App\Models\PerfilAcesso;
-use App\Models\Vendedor;
 use Auth;
-use Hash;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
+use Illuminate\Support\Facades\Hash as FacadesHash;
 
 class LoginClienteController extends Controller
 {
@@ -21,11 +18,10 @@ class LoginClienteController extends Controller
             
             $uid= Auth::user()->id_usuario;
             $unome= Auth::user()->nome;
-            $uperfil= Auth::user()->perfil_fk;
-            $unomeperfil= Auth::user()->perfil->nome;
-            $uempresa= Auth::user()->empresa;
+            $ucargo= Auth::user()->cargo->id_cargo;
+            $unomecargo= Auth::user()->cargo->descricao;
 
-            //dd();
+            //dd($unomecargo);
             $arquivo = 'storage/img/users/'.$uid.'.jpg';
             if(file_exists($arquivo)){
             $uimagem = $arquivo;
@@ -33,31 +29,24 @@ class LoginClienteController extends Controller
             $uimagem = 'storage/img/users/default.jpg';
             }
 
-            $roleView = PerfilAcesso::where('perfil_cod',Auth::user()->perfil_fk)
-                                    ->where('role',1)
-                                    ->pluck('ativo');
-            $roleAdmin = PerfilAcesso::where('perfil_cod',Auth::user()->perfil_fk)
-                                    ->where('role',5)
-                                    ->pluck('ativo');
+            $role = CargoAcesso::where('cargo_cod', $ucargo)
+                                    ->pluck('status');
 
-            $acessoPerfil = PerfilAcesso::where('perfil_cod',Auth::user()->perfil_fk)
-            ->select('role','ativo')->get();
+         
+            $acessoCargo = CargoAcesso::where('cargo_cod', $ucargo)
+                                       ->select('role','status')
+                                       ->get();
             
-            $clientes = Cliente::where('emp_cod',$uempresa)->count();
-            $vendedores = Vendedor::where('emp_cod',$uempresa)->count();
-            $almoxarifado = Almoxarifado::where('emp_cod',$uempresa)->count();
-            
-            if ($roleView[0]  == 1){
-                return view('painel.page.index',compact('uperfil','unomeperfil','unome','uid','uimagem','acessoPerfil','clientes','vendedores','almoxarifado'));
+                                
+            if ($role[0]  == 1){
+                return view('cliente.index',compact('ucargo','unomecargo','unome','uid','uimagem','acessoCargo'));
             }else{
-                return view('painel.page.nopermission',compact('uperfil','unomeperfil','unome','uid','uimagem','empresas','perfis','acessoPerfil'));
+                return view('nopermission');
             }  
 
-            
-       
         }else{
 
-            return view('login');
+            return view('loginCli');
 
         }
     }
@@ -74,35 +63,38 @@ class LoginClienteController extends Controller
         $lembrar = empty($request->remember) ? false : true;
 
         $usuario = User::where('email', $request->email)
-                       ->where('ativo',1)
-                       ->with(['perfil','setempresa'])
+                       ->with(['cargo'])
                        ->first();
-       
-        $statusUser = User::where('email', $request->email)->first();
-        //dd($statusUser->ativo);
-        //dd(bcrypt($request->senha));
-            
-        if(!$usuario->setempresa->ativo){
-            return redirect()->action('LoginController@form')->with('status_login_error', 'Empresa Inativa! Contate o Setor financeiro.');
-        }
-        if(!$usuario->perfil->ativo){
-            return redirect()->action('LoginController@form')->with('status_login_error', 'Perfil do usuário Inativo!');
+        
+        if(!$usuario){
+            return redirect()->action('LoginClienteController@form')->with('status_login_error', 'Usuário inexistente!');
         }
 
-        if ($usuario && Hash::check($request->senha, $usuario->password)) {
+        $statusUser = User::where('email', $request->email)->first();
+        //dd($statusUser);
+        //dd(bcrypt($request->senha));
+            
+        if(!$usuario->cargo->status){
+            return redirect()->action('LoginSuporteController@form')->with('status_login_error', 'Cargo inativo!');
+        }
+        
+
+       
+        if ($usuario && FacadesHash::check($request->senha, $usuario->password)) {
            
-            Auth::loginUsingId($usuario->id_usuario, $lembrar);
+            FacadesAuth::loginUsingId($usuario->id_usuario, $lembrar);
         }
             
        
 
         if($statusUser->ativo==0){
-            return redirect()->action('LoginController@form')->with('status_login_error', 'Usuário Inativo!');
+            return redirect()->action('LoginClienteController@form')->with('status_login_error', 'Usuário Inativo!');
         }else{
-            return redirect()->action('LoginController@form')->with('status_login_error', 'Por favor, verifique os dados!');
+            return redirect()->action('LoginClienteController@form')->with('status_login_error', 'Por favor, verifique os dados!');
         }
           
     }
+
 
 
 }

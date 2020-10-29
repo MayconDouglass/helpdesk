@@ -2944,6 +2944,7 @@ fieldset:disabled a.btn {
 .show>.btn-warning.dropdown-toggle:focus {
     box-shadow: 0 0 0 0 rgba(221, 171, 15, .5)
 }
+
 .btn-danger {
     color: #fff;
     background-color: #dc3545;
@@ -6334,14 +6335,14 @@ a.disabled.mailbox-attachment-close {
 
 .modal-open {
     overflow: hidden;
-  }
-  
-  .modal-open .modal {
+}
+
+.modal-open .modal {
     overflow-x: hidden;
     overflow-y: auto;
-  }
-  
-  .modal {
+}
+
+.modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -6351,106 +6352,106 @@ a.disabled.mailbox-attachment-close {
     height: 100%;
     overflow: hidden;
     outline: 0;
-  }
-  
-  .modal-dialog {
+}
+
+.modal-dialog {
     position: relative;
     width: auto;
     margin: 0.5rem;
     pointer-events: none;
-  }
-  
-  .modal.fade .modal-dialog {
+}
+
+.modal.fade .modal-dialog {
     -webkit-transition: -webkit-transform 0.3s ease-out;
     transition: -webkit-transform 0.3s ease-out;
     -o-transition: transform 0.3s ease-out;
     transition: transform 0.3s ease-out;
     transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
     -webkit-transform: translate(0, -50px);
-        -ms-transform: translate(0, -50px);
-            transform: translate(0, -50px);
-  }
-  
-  @media (prefers-reduced-motion: reduce) {
+    -ms-transform: translate(0, -50px);
+    transform: translate(0, -50px);
+}
+
+@media (prefers-reduced-motion: reduce) {
     .modal.fade .modal-dialog {
-      -webkit-transition: none;
-      -o-transition: none;
-      transition: none;
+        -webkit-transition: none;
+        -o-transition: none;
+        transition: none;
     }
-  }
-  
-  .modal.show .modal-dialog {
+}
+
+.modal.show .modal-dialog {
     -webkit-transform: none;
-        -ms-transform: none;
-            transform: none;
-  }
-  
-  .modal-dialog-scrollable {
+    -ms-transform: none;
+    transform: none;
+}
+
+.modal-dialog-scrollable {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     max-height: calc(100% - 1rem);
-  }
-  
-  .modal-dialog-scrollable .modal-content {
+}
+
+.modal-dialog-scrollable .modal-content {
     max-height: calc(100vh - 1rem);
     overflow: hidden;
-  }
-  
-  .modal-dialog-scrollable .modal-header,
-  .modal-dialog-scrollable .modal-footer {
+}
+
+.modal-dialog-scrollable .modal-header,
+.modal-dialog-scrollable .modal-footer {
     -ms-flex-negative: 0;
-        flex-shrink: 0;
-  }
-  
-  .modal-dialog-scrollable .modal-body {
+    flex-shrink: 0;
+}
+
+.modal-dialog-scrollable .modal-body {
     overflow-y: auto;
-  }
-  
-  .modal-dialog-centered {
+}
+
+.modal-dialog-centered {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     min-height: calc(100% - 1rem);
-  }
-  
-  .modal-dialog-centered::before {
+}
+
+.modal-dialog-centered::before {
     display: block;
     height: calc(100vh - 1rem);
     content: "";
-  }
-  
-  .modal-dialog-centered.modal-dialog-scrollable {
+}
+
+.modal-dialog-centered.modal-dialog-scrollable {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     height: 100%;
-  }
-  
-  .modal-dialog-centered.modal-dialog-scrollable .modal-content {
+}
+
+.modal-dialog-centered.modal-dialog-scrollable .modal-content {
     max-height: none;
-  }
-  
-  .modal-dialog-centered.modal-dialog-scrollable::before {
+}
+
+.modal-dialog-centered.modal-dialog-scrollable::before {
     content: none;
-  }
-  
-  .modal-content {
+}
+
+.modal-content {
     position: relative;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     width: 100%;
     pointer-events: auto;
     background-color: #FFF;
@@ -6458,9 +6459,9 @@ a.disabled.mailbox-attachment-close {
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 0.3rem;
     outline: 0;
-  }
-  
-  .modal-backdrop {
+}
+
+.modal-backdrop {
     position: fixed;
     top: 0;
     left: 0;
@@ -6468,117 +6469,123 @@ a.disabled.mailbox-attachment-close {
     width: 100vw;
     height: 100vh;
     background-color: #000;
-  }
-  
-  .modal-backdrop.fade {
+}
+
+.modal-backdrop.fade {
     opacity: 0;
-  }
-  
-  .modal-backdrop.show {
+}
+
+.modal-backdrop.show {
     opacity: 0.5;
-  }
-  
-  .modal-header {
+}
+
+.modal-header {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
     -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
     padding: 1rem 1rem;
     border-bottom: 1px solid #dee2e6;
     border-top-left-radius: 0.3rem;
     border-top-right-radius: 0.3rem;
-  }
-  
-  .modal-header .close {
+}
+
+.modal-header .close {
     padding: 1rem 1rem;
     margin: -1rem -1rem -1rem auto;
-  }
-  
-  .modal-title {
+}
+
+.modal-title {
     margin-bottom: 0;
     line-height: 1.5;
-  }
-  
-  .modal-body {
+}
+
+.modal-body {
     position: relative;
     -webkit-box-flex: 1;
-        -ms-flex: 1 1 auto;
-            flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
     padding: 1rem;
-  }
-  
-  .modal-footer {
+}
+
+.modal-footer {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
     padding: 1rem;
     border-top: 1px solid #dee2e6;
     border-bottom-right-radius: 0.3rem;
     border-bottom-left-radius: 0.3rem;
-  }
-  
-  .modal-footer > :not(:first-child) {
+}
+
+.modal-footer> :not(:first-child) {
     margin-left: .25rem;
-  }
-  
-  .modal-footer > :not(:last-child) {
+}
+
+.modal-footer> :not(:last-child) {
     margin-right: .25rem;
-  }
-  
-  .modal-scrollbar-measure {
+}
+
+.modal-scrollbar-measure {
     position: absolute;
     top: -9999px;
     width: 50px;
     height: 50px;
     overflow: scroll;
-  }
-  
-  @media (min-width: 576px) {
+}
+
+@media (min-width: 576px) {
     .modal-dialog {
-      max-width: 500px;
-      margin: 1.75rem auto;
+        max-width: 500px;
+        margin: 1.75rem auto;
     }
+
     .modal-dialog-scrollable {
-      max-height: calc(100% - 3.5rem);
+        max-height: calc(100% - 3.5rem);
     }
+
     .modal-dialog-scrollable .modal-content {
-      max-height: calc(100vh - 3.5rem);
+        max-height: calc(100vh - 3.5rem);
     }
+
     .modal-dialog-centered {
-      min-height: calc(100% - 3.5rem);
+        min-height: calc(100% - 3.5rem);
     }
+
     .modal-dialog-centered::before {
-      height: calc(100vh - 3.5rem);
+        height: calc(100vh - 3.5rem);
     }
+
     .modal-sm {
-      max-width: 300px;
+        max-width: 300px;
     }
-  }
-  
-  @media (min-width: 992px) {
+}
+
+@media (min-width: 992px) {
+
     .modal-lg,
     .modal-xl {
-      max-width: 800px;
+        max-width: 800px;
     }
-  }
-  
-  @media (min-width: 1200px) {
+}
+
+@media (min-width: 1200px) {
     .modal-xl {
-      max-width: 1140px;
+        max-width: 1140px;
     }
-  }
-  
+}
+
 
 .tooltip {
     position: absolute;
@@ -7218,7 +7225,7 @@ button.bg-success:hover {
 
 .bg-roxo {
     background-color: #5a06e0 !important;
-    color:#ffffff
+    color: #ffffff
 }
 
 a.bg-roxo:focus,
@@ -11423,7 +11430,7 @@ body:not(.layout-fixed).layout-navbar-fixed.text-sm .wrapper .main-sidebar .side
 }
 
 .layout-navbar-fixed .wrapper .sidebar-dark-secondary .brand-link:not([class*=navbar]) {
-    background-color: #343a40
+    background-color: #1177dd
 }
 
 .layout-navbar-fixed .wrapper .sidebar-light-secondary .brand-link:not([class*=navbar]) {
@@ -11576,8 +11583,9 @@ body:not(.layout-fixed).layout-navbar-fixed.text-sm .wrapper .main-sidebar .side
     z-index: 1035
 }
 
+/*Aqui muda o header do sidebar */
 .layout-navbar-fixed .wrapper .sidebar-dark-primary .brand-link:not([class*=navbar]) {
-    background-color: #343a40
+    background-color: #18b6ceaf
 }
 
 .layout-navbar-fixed .wrapper .sidebar-light-primary .brand-link:not([class*=navbar]) {
@@ -13049,8 +13057,15 @@ body.sidebar-collapse:not(.sidebar-mini-md):not(.sidebar-mini) .main-header::bef
 
 .user-panel,
 .user-panel .info {
+    align-items: center;
     overflow: hidden;
-    white-space: nowrap
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    margin-bottom: 0;
+    font-size: 17px;
+    line-height: 1.3;
 }
 
 .user-panel .image {
@@ -13067,7 +13082,7 @@ body.sidebar-collapse:not(.sidebar-mini-md):not(.sidebar-mini) .main-header::bef
 .user-panel .info {
     display: inline-block;
     padding: 5px 5px 5px 10px;
-    color: #007bff
+    color: #ffffff
 }
 
 .user-panel .dropdown-menu,
@@ -13957,6 +13972,7 @@ body.sidebar-collapse:not(.sidebar-mini-md):not(.sidebar-mini) .main-header::bef
 
 [class*=sidebar-dark] .btn-sidebar,
 [class*=sidebar-dark] .form-control-sidebar {
+    /*background: #3f474e;*/
     background: #3f474e;
     border: 1px solid #56606a;
     color: #fff
@@ -15002,7 +15018,7 @@ body.text-sm .control-sidebar {
 }
 
 .navbar-primary {
-    background-color: #007bff
+    background-color: #036f80
 }
 
 .navbar-secondary {
@@ -30582,3 +30598,15 @@ a.text-muted:hover {
 }
 
 /*# sourceMappingURL=adminlte.min.css.map */
+.texto-error {
+    color: #ffffff;
+    float: center;
+    font-weight: bolder;
+    font-size: 20px;
+    font-weight: 300;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.img-circle2 {
+    border-radius: 100%
+}

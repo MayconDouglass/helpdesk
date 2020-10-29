@@ -26,7 +26,7 @@
                     <p><h2 class="headline text-danger"> 401</h2></p>
 
                     <div class="col-sm-12 error-content ">
-                        <h3 class="teste"><i class="fas fa-exclamation-triangle text-danger"></i> Oops! Sem Permissão.</h3>
+                        <h3 class="texto-error"><i class="fas fa-exclamation-triangle text-danger"></i> Oops! Sem Permissão.</h3>
 
                         <p><label class="headline texto"> Não foi possível acessar esta página, seu usuário não possui permissão.
                             Enquanto isso, você pode clicar aqui e <a href="javascript:history.back()">retornar de onde veio :)</a>

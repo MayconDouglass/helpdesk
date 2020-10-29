@@ -33,13 +33,13 @@ class LoginSuporteController extends Controller
                                     ->pluck('status');
 
          
-            $acessoPerfil = CargoAcesso::where('cargo_cod', $ucargo)
+            $acessoCargo = CargoAcesso::where('cargo_cod', $ucargo)
                                        ->select('role','status')
                                        ->get();
             
-                        
+                                
             if ($role[0]  == 1){
-                return view('suporte.index',compact('ucargo','unomecargo','unome','uid','uimagem','acessoPerfil'));
+                return view('suporte.index',compact('ucargo','unomecargo','unome','uid','uimagem','acessoCargo'));
             }else{
                 return view('nopermission');
             }  

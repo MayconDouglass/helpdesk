@@ -1,7 +1,8 @@
 /* CSS tabelas */
 .actionDataTab {
-    width: 255px;
+    width: 180px;
     text-align: center;
+    align-content: center;
 }
 
 .statusDataTab {
@@ -116,8 +117,10 @@
 
 
 .imgCad {
-    width: 120px;
-    height: 150px;
+    max-width: 120px;
+    max-height: 150px;
+    width: auto;
+    height: auto;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -129,12 +132,29 @@
 .imgUser {
     width: 30px;
     height: 30px;
+    width: auto;
+    height: auto;
     display: block;
     margin-left: auto;
     margin-right: auto;
     border-radius: 50px;
     box-shadow: 0px 0px 20px #3b4652;
     border: 2px solid #035cc2;
+}
+
+.imgUser_Logado {
+    width: auto;
+    height: auto;
+    max-width: 45px;
+    max-height: 45px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50px;
+    box-shadow: 0px 0px 20px #3b4652;
+    border: 2px solid #18b6ceaf;
+    object-fit: fill;
+
 }
 
 .fileinput {
@@ -150,6 +170,11 @@
 
 .alt_modalHeader {
     background-color: #4308a1;
+    color: #fff;
+}
+
+.info_modalHeader {
+    background-color: #18b6ceaf;
     color: #fff;
 }
 

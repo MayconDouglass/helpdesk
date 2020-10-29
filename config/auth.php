@@ -1,5 +1,6 @@
 <?php
 
+
 return [
 
     /*
@@ -43,7 +44,7 @@ return [
 
         'cliente' => [
             'driver' => 'session',
-            'provider' => 'client',
+            'provider' => 'cliente',
         ],
 
         'api' => [
@@ -75,9 +76,9 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
-        'client' => [
+        'cliente' => [
             'driver' => 'eloquent',
-            'model' => App\UserCli::class,
+            'model' =>  App\Models\CliUser::class,
         ],
 
         // 'users' => [

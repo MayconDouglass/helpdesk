@@ -26,7 +26,8 @@
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
   <div class="wrapper">
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <nav class="main-header navbar navbar-expand navbar-primary navbar-dark">
+      
       <!-- Left navbar links -->
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -73,15 +74,19 @@
       <a href="/suporte" class="brand-link">
         <img src="{{url('/')}}/storage/config/suporte.png" alt="Logo" class="brand-image "
           style="opacity: .8">
-        <span class="brand-text font-weight-light">SIG 2000</span>
+        <span class="brand-text font-weight-light texto-error">SIG 2000</span>
       </a>
 
       <!-- Sidebar -->
       <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
-        <div class="app-sidebar__user text-justify">
-          <img class="app-sidebar__user-avatar" src="{{$uimagem}}" width="70px" height="70px" alt="User Image">
-          <div>
+        
+
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <img src="{{$uimagem}}" class="imgUser_Logado elevation-2" alt="User Image">
+          </div>
+          <div class="info">
             <p class="app-sidebar__user-name">{{explode(" ", $unome)[0]}}</p>
             <p class="app-sidebar__user-designation">{{explode(" ", $unomecargo)[0]}}</p>
           </div>
@@ -90,9 +95,9 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add perfil : ADM -->
-            @foreach ($acessoPerfil as $acesso)
-            @if (($acesso->role == 1)&&($acesso->ativo == 1))
+            <!-- Add Cargo : ADM -->
+            @foreach ($acessoCargo as $acesso)
+            @if (($acesso->role == 1)&&($acesso->status == 1))
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-cogs"></i>
@@ -101,21 +106,21 @@
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
-              @foreach ($acessoPerfil as $acesso)
-              @if (($acesso->role == 7)&&($acesso->ativo == 1))
+              @foreach ($acessoCargo as $acesso)
+              @if (($acesso->role == 7)&&($acesso->status == 1))
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{route('perfis')}}" class="nav-link">
+                  <a href="{{route('cargos')}}" class="nav-link">
                     <i class="fas fa-users nav-icon"></i>
-                    <p>Perfil</p>
+                    <p>Cargo</p>
                   </a>
                 </li>
               </ul>
               @endif
               @endforeach
 
-              @foreach ($acessoPerfil as $acesso)
-              @if (($acesso->role == 6)&&($acesso->ativo == 1))
+              @foreach ($acessoCargo as $acesso)
+              @if (($acesso->role == 6)&&($acesso->status == 1))
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="{{route('usuarios')}}" class="nav-link">
@@ -128,18 +133,18 @@
               @endforeach
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{route('empresas')}}" class="nav-link">
+                  <a href="#" class="nav-link">
                     <i class="fas fa-building nav-icon"></i>
-                    <p>Empresa</p>
+                    <p>Clientes</p>
                   </a>
                 </li>
               </ul>
 
-              @foreach ($acessoPerfil as $acesso)
-              @if (($acesso->role == 5)&&($acesso->ativo == 1))
+              @foreach ($acessoCargo as $acesso)
+              @if (($acesso->role == 5)&&($acesso->status == 1))
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{route('contratos')}}" class="nav-link">
+                  <a href="#" class="nav-link">
                     <i class="fas fa-clipboard nav-icon"></i>
                     <p>Contratos</p>
                   </a>
@@ -160,46 +165,46 @@
                 </p>
               </a>
               <ul class="nav nav-treeview">
-                @foreach ($acessoPerfil as $acesso)
-                @if (($acesso->role == 1)&&($acesso->ativo == 1))
+                @foreach ($acessoCargo as $acesso)
+                @if (($acesso->role == 1)&&($acesso->status == 1))
                 <li class="nav-item">
-                  <a href="{{route('modoCob')}}" class="nav-link">
+                  <a href="#" class="nav-link">
                     <i class="fa fa-money nav-icon"></i>
                     <p>Modo de Cobrança</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{route('prazoPag')}}" class="nav-link">
+                  <a href="#" class="nav-link">
                     <i class="fa fa-calendar nav-icon"></i>
                     <p>Prazo de Cobrança</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{route('tabPreco')}}" class="nav-link">
+                  <a href="#" class="nav-link">
                     <i class="fa fa-usd nav-icon"></i>
                     <p>Tabela de Preço</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{route('tes')}}" class="nav-link">
+                  <a href="#" class="nav-link">
                     <i class="fa fa-exchange nav-icon"></i>
                     <p>Tipo de Entrada/Saída</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{route('unidade')}}" class="nav-link">
+                  <a href="#" class="nav-link">
                     <i class="fa fa-underline nav-icon"></i>
                     <p>Unidades</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{route('almoxarifado')}}" class="nav-link">
+                  <a href="#" class="nav-link">
                     <i class="fa fa-archive nav-icon"></i>
                     <p>Almoxarifado</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{route('situacaotrib')}}" class="nav-link">
+                  <a href="#" class="nav-link">
                     <i class="fa fa-gavel nav-icon"></i>
                     <p>Situação Tributária</p>
                   </a>
@@ -218,22 +223,22 @@
                 </p>
               </a>
               <ul class="nav nav-treeview">
-                @foreach ($acessoPerfil as $acesso)
-                @if (($acesso->role == 1)&&($acesso->ativo == 1))
+                @foreach ($acessoCargo as $acesso)
+                @if (($acesso->role == 1)&&($acesso->status == 1))
                 <li class="nav-item">
-                  <a href="{{route('clientes')}}" class="nav-link">
+                  <a href="#" class="nav-link">
                     <i class="fa fa-user-o nav-icon"></i>
                     <p>Clientes</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{route('vendedores')}}" class="nav-link">
+                  <a href="#" class="nav-link">
                     <i class="fa fa-address-card nav-icon"></i>
                     <p>Vendedores</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{route('setores')}}" class="nav-link">
+                  <a href="#" class="nav-link">
                     <i class="fa fa-map-marker nav-icon"></i>
                     <p>Setores</p>
                   </a>
@@ -296,10 +301,10 @@
                 </p>
               </a>
               <ul class="nav nav-treeview">
-                @foreach ($acessoPerfil as $acesso)
-                @if (($acesso->role == 1)&&($acesso->ativo == 1))
+                @foreach ($acessoCargo as $acesso)
+                @if (($acesso->role == 1)&&($acesso->status == 1))
                 <li class="nav-item">
-                  <a href="{{route('transportadora')}}" class="nav-link">
+                  <a href="#" class="nav-link">
                     <i class="fa fa-truck nav-icon"></i>
                     <p>Transportadora</p>
                   </a>

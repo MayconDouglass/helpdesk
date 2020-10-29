@@ -35,6 +35,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property StatusTicket $status_ticket
  * @property Setor $setor
  * @property Categorium $categorium
+ * @property Collection|BuildDetail[] $build_details
  * @property Collection|TicketAnexo[] $ticket_anexos
  * @property Collection|TicketPost[] $ticket_posts
  *
@@ -109,6 +110,11 @@ class Ticket extends Model
 	public function categorium()
 	{
 		return $this->belongsTo(Categorium::class, 'categoria_cod');
+	}
+
+	public function build_details()
+	{
+		return $this->hasMany(BuildDetail::class, 'id_ticket');
 	}
 
 	public function ticket_anexos()

@@ -26,6 +26,7 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property Usuario $usuario
  * @property Cargo $cargo
+ * @property Collection|BuildDetail[] $build_details
  * @property Collection|Post[] $posts
  * @property Collection|TicketAnexo[] $ticket_anexos
  * @property Collection|TicketPost[] $ticket_posts
@@ -76,6 +77,11 @@ class Usuario extends Model
 	public function cargo()
 	{
 		return $this->belongsTo(Cargo::class, 'cargo_cod');
+	}
+
+	public function build_details()
+	{
+		return $this->hasMany(BuildDetail::class, 'user');
 	}
 
 	public function posts()

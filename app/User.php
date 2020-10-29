@@ -21,7 +21,7 @@ class User extends Authenticatable
 	protected $casts = [
 		'cargo_cod' => 'int',
 		'ativo' => 'int',
-		'usuario' => 'int'
+		'usucad' => 'int'
 	];
 
 	protected $dates = [
@@ -41,7 +41,7 @@ class User extends Authenticatable
 		'password',
 		'remember_token',
 		'ativo',
-		'usuario',
+		'usucad',
 		'data_cad',
 		'data_alt'
 	];
@@ -54,6 +54,11 @@ class User extends Authenticatable
 	public function cargo()
 	{
 		return $this->belongsTo(Cargo::class, 'cargo_cod');
+	}
+
+	public function build_details()
+	{
+		return $this->hasMany(BuildDetail::class, 'user');
 	}
 
 	public function posts()
