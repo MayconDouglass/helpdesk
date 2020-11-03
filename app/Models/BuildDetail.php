@@ -6,6 +6,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -17,9 +18,11 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id_build
  * @property bool $status
  * @property string $descricao
+ * @property int $menu
+ * @property int $modulo
+ * @property Carbon|null $data_liberacao
  * 
  * @property BuildList $build_list
- * @property Ticket $ticket
  * @property Usuario $usuario
  *
  * @package App\Models
@@ -34,7 +37,13 @@ class BuildDetail extends Model
 		'id_ticket' => 'int',
 		'user' => 'int',
 		'id_build' => 'int',
-		'status' => 'bool'
+		'status' => 'bool',
+		'menu' => 'int',
+		'modulo' => 'int'
+	];
+
+	protected $dates = [
+		'data_liberacao'
 	];
 
 	protected $fillable = [
@@ -42,17 +51,15 @@ class BuildDetail extends Model
 		'user',
 		'id_build',
 		'status',
-		'descricao'
+		'descricao',
+		'menu',
+		'modulo',
+		'data_liberacao'
 	];
 
 	public function build_list()
 	{
 		return $this->belongsTo(BuildList::class, 'id_build');
-	}
-
-	public function ticket()
-	{
-		return $this->belongsTo(Ticket::class, 'id_ticket');
 	}
 
 	public function usuario()

@@ -162,11 +162,3 @@ $('#modal-permissao').on('show.bs.modal', function (event) {
     modal.find('.b_text_modal_title_permissao').text('Permissões do Cargo: ' + nomeCargo)
     modal.find('#idCargo').val(idCargo)
 })
-
-$('#modal-password').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget) // Botão que acionou o modal
-    var idUser = button.data('codigo')
-    $("#idUser").val(idUser);
-    var modal = $(this)
-    modal.find('.b_text_modal_title_password').text('Resetar Password')
-})

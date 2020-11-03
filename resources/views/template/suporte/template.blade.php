@@ -95,9 +95,9 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add Cargo : ADM -->
+            <!-- Configuracao -->
             @foreach ($acessoCargo as $acesso)
-            @if (($acesso->role == 1)&&($acesso->status == 1))
+            @if (($acesso->role == 5)&&($acesso->status == 1))
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-cogs"></i>
@@ -106,21 +106,14 @@
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
-              @foreach ($acessoCargo as $acesso)
-              @if (($acesso->role == 7)&&($acesso->status == 1))
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="{{route('cargos')}}" class="nav-link">
-                    <i class="fas fa-users nav-icon"></i>
+                    <i class="fa fa-suitcase nav-icon"></i>
                     <p>Cargo</p>
                   </a>
                 </li>
               </ul>
-              @endif
-              @endforeach
-
-              @foreach ($acessoCargo as $acesso)
-              @if (($acesso->role == 6)&&($acesso->status == 1))
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="{{route('usuarios')}}" class="nav-link">
@@ -129,19 +122,38 @@
                   </a>
                 </li>
               </ul>
-              @endif
-              @endforeach
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="fas fa-building nav-icon"></i>
-                    <p>Clientes</p>
+                  <a href="{{route('categorias')}}" class="nav-link">
+                    <i class="fas fa-bookmark nav-icon"></i>
+                    <p>Categorias</p>
                   </a>
                 </li>
               </ul>
-
-              @foreach ($acessoCargo as $acesso)
-              @if (($acesso->role == 5)&&($acesso->status == 1))
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('classificacao')}}" class="nav-link">
+                    <i class="fa fa-bookmark-o nav-icon"></i>
+                    <p>Classificação</p>
+                  </a>
+                </li>
+              </ul>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('setores')}}" class="nav-link">
+                    <i class="fa fa-sitemap nav-icon"></i>
+                    <p>Setor</p>
+                  </a>
+                </li>
+              </ul>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('status')}}" class="nav-link">
+                    <i class="fa fa-asterisk nav-icon"></i>
+                    <p>Status</p>
+                  </a>
+                </li>
+              </ul>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="#" class="nav-link">
@@ -150,12 +162,11 @@
                   </a>
                 </li>
               </ul>
-              @endif
-              @endforeach
             </li>
             @endif
             @endforeach
 
+            <!-- Tabelas Genericas -->
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
                 <i class="nav-icon fa fa-superpowers"></i>
@@ -168,9 +179,9 @@
                 @foreach ($acessoCargo as $acesso)
                 @if (($acesso->role == 1)&&($acesso->status == 1))
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="fa fa-money nav-icon"></i>
-                    <p>Modo de Cobrança</p>
+                  <a href="{{route('buildlist')}}" class="nav-link">
+                    <i class="fa fa-history nav-icon"></i>
+                    <p>Patch List Build</p>
                   </a>
                 </li>
                 <li class="nav-item">

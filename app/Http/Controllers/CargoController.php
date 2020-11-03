@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 use App\Models\Cargo;
 use App\Models\CargoAcesso;
 use App\Models\Role;
-use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -42,8 +41,8 @@ class CargoController extends Controller
                                       ->get();
 
             $cargos = Cargo::all();
-           
-            if ($role[0]  == 1){
+        
+            if ($role[4]  == 1){
                 return view('suporte.cargos',compact('ucargo','unomecargo','unome','uid','uimagem','cargos','acessoCargo'));
             }else{
                 return redirect('/nopermission');

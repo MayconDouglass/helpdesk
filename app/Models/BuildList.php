@@ -14,7 +14,8 @@ use Illuminate\Database\Eloquent\Model;
  * Class BuildList
  * 
  * @property int $id_build
- * @property string $dialecto
+ * @property bool $dialecto
+ * @property int $build
  * @property int $tipo
  * @property string|null $observacao
  * @property bool $status
@@ -32,6 +33,8 @@ class BuildList extends Model
 	public $timestamps = false;
 
 	protected $casts = [
+		'dialecto' => 'bool',
+		'build' => 'int',
 		'tipo' => 'int',
 		'status' => 'bool'
 	];
@@ -43,6 +46,7 @@ class BuildList extends Model
 
 	protected $fillable = [
 		'dialecto',
+		'build',
 		'tipo',
 		'observacao',
 		'status',

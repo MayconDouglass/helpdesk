@@ -8,7 +8,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
  * Class CliUser
@@ -30,7 +29,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  *
  * @package App\Models
  */
-class CliUser extends Authenticatable
+class CliUser extends Model
 {
 	protected $table = 'cli_users';
 	protected $primaryKey = 'id_usuario';

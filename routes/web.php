@@ -33,6 +33,36 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/suporte/cargos/obterperm', 'CargoController@obterPermissaoCargo'); 
     Route::get('/suporte/cargos/role', 'CargoController@countRoleCargo'); 
 
+    //categorias
+    Route::get('/suporte/categorias', 'CategoriaController@create')->name('categorias');
+    Route::post('/suporte/categorias/cad', 'CategoriaController@store');
+    Route::post('/suporte/categorias/att', 'CategoriaController@update');
+    Route::post('/suporte/categorias/del', 'CategoriaController@destroy');
+
+    //classificacao
+    Route::get('/suporte/classificacao', 'ClassificacaoController@create')->name('classificacao');
+    Route::post('/suporte/class/cad', 'ClassificacaoController@store');
+    Route::post('/suporte/class/att', 'ClassificacaoController@update');
+    Route::post('/suporte/class/del', 'ClassificacaoController@destroy');
+
+    //setores
+    Route::get('/suporte/setor', 'SetorController@create')->name('setores');
+    Route::post('/suporte/setor/cad', 'SetorController@store');
+    Route::post('/suporte/setor/att', 'SetorController@update');
+    Route::post('/suporte/setor/del', 'SetorController@destroy');
+
+    //status
+    Route::get('/suporte/status', 'StatusController@create')->name('status');
+    Route::post('/suporte/status/cad', 'StatusController@store');
+    Route::post('/suporte/status/att', 'StatusController@update');
+    Route::post('/suporte/status/del', 'StatusController@destroy');
+
+    //build list
+    Route::get('/suporte/build', 'BuildListController@create')->name('buildlist');
+    Route::post('/suporte/build/cad', 'BuildListController@store');
+    Route::post('/suporte/build/att', 'BuildListController@update');
+    Route::post('/suporte/build/del', 'BuildListController@destroy');
+
 
 });
 
