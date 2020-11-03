@@ -381,7 +381,7 @@
                     </div>
 
                   <div class="col-sm-12">
-                      <input class="form-control" type="text" id="idBuild" name="idBuild" required />
+                      <input class="form-control" type="hidden" id="idBuild" name="idBuild" required />
                       <p>
                       <div class="card-body table-responsive p-0" style="height: 200px;">
                           <table class="table table-head-fixed text-nowrap" id="patchlisttab">
