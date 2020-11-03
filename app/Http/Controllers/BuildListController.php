@@ -99,16 +99,16 @@ class BuildListController extends Controller
     public function destroy(Request $request){
             
             if(empty($request->iddelete)){
-                return redirect()->action('StatusController@create')->with('status_error', 'Falha!');    
+                return redirect()->action('BuildListController@create')->with('status_error', 'Falha!');    
             }
 
-            $status = StatusTicket::find($request->iddelete);
+            $status = BuildList::find($request->iddelete);
             $delete = $status->delete();
             
             if($delete){
-                return redirect()->action('StatusController@create')->with('status_success', 'Status Excluído!');
+                return redirect()->action('BuildListController@create')->with('status_success', 'Build List Excluído!');
             }else{
-                return redirect()->action('StatusController@create')->with('status_error', 'Não foi possível excluir o status, possivelmente existem tickets associados!');    
+                return redirect()->action('BuildListController@create')->with('status_error', 'Não foi possível excluir o Build List, possivelmente existem tickets/tarefas associadas!');    
             }
 
     }
