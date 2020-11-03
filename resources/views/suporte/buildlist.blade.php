@@ -500,7 +500,7 @@
         </div>
       </div>
       <div class="modal-body">
-        <form class="form-horizontal" method="POST" action="{{action('StatusController@destroy')}}">
+        <form class="form-horizontal" method="POST" action="{{action('BuildListController@destroy')}}">
           @csrf
           <input type="hidden" class="form-control col-form-label-sm" id="iddelete" name="iddelete">
           <label class="b_text_modal_danger">Deseja realmente excluir este registro?</label>
